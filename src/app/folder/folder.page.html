@@ -14,8 +14,102 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+  
+
+
+
+
+  <div *ngIf="folder=='registro'">
+    <form (ngSubmit)="agregar_usuario()">
+      <ion-title>Registro</ion-title>
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input name="nombre" [(ngModel)]="nombre" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellido</ion-label>
+        <ion-input name="apellido" [(ngModel)]="apellido" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Telefono</ion-label>
+        <ion-input name="telefono" [(ngModel)]="telefono" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+
+        <ion-label>Correo Electrónico</ion-label>
+        <ion-input name="email" [(ngModel)]="email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha Nacimiento</ion-label>
+        <ion-input name="fechaN" [(ngModel)]="fechaN" type="date"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Genero</ion-label>
+        <ion-input name="genero" [(ngModel)]="genero" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <p>Tu edad es {{ edad }}</p>
+      </ion-item>
+
+      <ion-button (click)="mensaje(nombre,apellido)" (click)="edadCalculator()"  type="submit"  >Registrar</ion-button>
+     
+    </form>
   </div>
+
+  <div *ngIf="folder=='usuarios'">
+   <ion-card *ngFor ="let e of lista" >
+     <ion-grid>
+       <ion-row>
+        <ion-item>
+          <ion-label>Nombre </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>apellido</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>telefono</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>email</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>fecha</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>edad</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>genero</ion-label>
+        </ion-item>
+
+       </ion-row>
+     </ion-grid>
+
+   </ion-card>
+    <p>lista</p>
+
+ 
+     
+    
+
+   
+      
+
+    
+  </div>
+
+  <div *ngIf="folder=='modificar'">
+    <form (ngSubmit)="agregar_usuario()">
+      <p>Modificar</p>
+     
+    </form>
+  </div>
+
+
 </ion-content>
